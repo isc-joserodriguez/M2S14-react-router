@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import { Navbar, Container, NavDropdown, Nav } from 'react-bootstrap'
 import Home from './components/Home/Home'
+import ListaPacientes from './components/Pacientes/ListaPacientes'
+import NuevoPaciente from './components/Pacientes/NuevoPaciente'
 
 import { pacientes } from './utils/data';
 
 //Rutas 
-import { Switch, Route, Link } from 'react-router-dom'
+import { Switch, Route, Link, Redirect } from 'react-router-dom'
 
 export default function App() {
   const [pacientesArray, setPacientes] = useState(pacientes);
@@ -16,14 +18,19 @@ export default function App() {
         <li><Link to='/about'>About</Link></li>
       </ul>
 
-      {pacientesArray.map((paciente, i) => <li key={i}>{paciente.nombre}</li>)}
+      {pacientesArray.map((paciente, i) => <ListaPacientes key={i} nombre={paciente.nombre} />)}
 
       <Switch>
         <Route path='/' component={Home} exact />
         <Route path='/about' render={() => <div>About </div>} exact />
-        <Route path='/about' render={() => <Home prop1='' />} exact />
-        <Route>
+        {/* <Route path='/about' render={() => <Home prop1='' />} exact /> */}
+        <Route path='/otra'>
           <Home prop1='' prop2='' />
+        </Route>
+        <Route path='/paciente/nuevo' component={NuevoPaciente} exact />
+
+        <Route>
+          <Redirect to='/about' />
         </Route>
       </Switch>
 
