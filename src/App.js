@@ -3,6 +3,7 @@ import { Navbar, Container, NavDropdown, Nav } from 'react-bootstrap'
 import Home from './components/Home/Home'
 import ListaPacientes from './components/Pacientes/ListaPacientes'
 import NuevoPaciente from './components/Pacientes/NuevoPaciente'
+import Tareas from './components/Tareas/Tareas'
 
 import Signup from './components/Signup/Signup'
 import Signin from './components/Signin/Signin'
@@ -26,6 +27,7 @@ export default function App() {
       <li><Link to='/' className='Enlace' id='Link'>Home</Link></li>
       <li><Link to='/about'>About</Link></li>
       <li><Link to='/paciente'>Pacientes</Link></li>
+      <li><Link to='/tareas'>Tareas</Link></li>
     </ul>
   ) : (
     <ul>
@@ -40,7 +42,8 @@ export default function App() {
     <Route key='2' path='/paciente' exact>
       {pacientesArray.map((paciente, i) => <ListaPacientes key={i} nombre={paciente.nombre} />)}
     </Route>,
-    <Route key='3' path='/paciente/nuevo' component={NuevoPaciente} exact />
+    <Route key='3' path='/paciente/nuevo' component={NuevoPaciente} exact />,
+    <Route key='4' path='/tareas' component={Tareas} exact />,
   ]
 
   return (
