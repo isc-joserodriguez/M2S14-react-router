@@ -1,11 +1,11 @@
 import React from 'react'
 import { signin } from '../../services/usuario'
-const Signin = () => {
+const Signin = ({setToken}) => {
     const onSubmited = (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
         const dataObject = Object.fromEntries(formData);
-        signin(dataObject);
+        signin(dataObject, setToken);
         e.target.reset();
     };
     return (

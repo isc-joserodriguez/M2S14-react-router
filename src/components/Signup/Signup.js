@@ -1,12 +1,12 @@
 import React from 'react'
-import { signup } from '../../services/usuario'
+import { signup as funcionSignup } from '../../services/usuario'
 
-const Signup = () => {
+const Signup = ({ setToken }) => {
     const onSubmited = (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
         const dataObject = Object.fromEntries(formData);
-        signup(dataObject);
+        funcionSignup(dataObject, setToken);
         e.target.reset();
     };
     return (

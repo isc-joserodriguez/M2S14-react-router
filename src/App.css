@@ -1,0 +1,14 @@
+.Enlace {
+    background-color: red;
+    color: white;
+}
+
+#Link {
+    font-size: 26px;
+}
+
+@media (min-width: 768px) {
+    li {
+        background-color: salmon;
+    }
+}
