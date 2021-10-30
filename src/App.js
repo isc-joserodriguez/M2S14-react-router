@@ -4,6 +4,7 @@ import { Home3 as Home } from './components/Home/Home'
 import ListaPacientes from './components/Pacientes/ListaPacientes'
 import NuevoPaciente from './components/Pacientes/NuevoPaciente'
 import Tareas from './components/Tareas/Tareas'
+import Time from './components/Time/Time'
 
 import Signup from './components/Signup/Signup'
 import Signin from './components/Signin/Signin'
@@ -28,6 +29,7 @@ export default function App() {
       <li><Link to='/about'>About</Link></li>
       <li><Link to='/paciente'>Pacientes</Link></li>
       <li><Link to='/tareas'>Tareas</Link></li>
+      <li><Link to='/time'>Time</Link></li>
     </ul>
   ) : (
     <ul>
@@ -44,6 +46,7 @@ export default function App() {
     </Route>,
     <Route key='3' path='/paciente/nuevo' component={NuevoPaciente} exact />,
     <Route key='4' path='/tareas' component={Tareas} exact />,
+    <Route key='5' path='/time' component={Time} exact />
   ]
 
   return (

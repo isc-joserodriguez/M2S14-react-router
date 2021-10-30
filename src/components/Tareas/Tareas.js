@@ -14,9 +14,6 @@ const Tareas = () => {
         console.log('montaje')
     }, [])
 
-
-
-
     return (
         <ul>
             {listaTareas.map((tarea, i) => (
