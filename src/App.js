@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Navbar, Container, NavDropdown, Nav } from 'react-bootstrap'
-import Home from './components/Home/Home'
+import { Home3 as Home } from './components/Home/Home'
 import ListaPacientes from './components/Pacientes/ListaPacientes'
 import NuevoPaciente from './components/Pacientes/NuevoPaciente'
 import Tareas from './components/Tareas/Tareas'

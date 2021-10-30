@@ -1,11 +1,31 @@
 import React from 'react'
 
-const Home = () => {
+const Home1 = () => {
     return (
         <div>
-            Home
+            Home 1
         </div>
     )
 }
 
-export default Home
+const Home2 = () => {
+    return (
+        <div>
+            Home 2
+        </div>
+    )
+}
+
+const Home3 = () => {
+    return (
+        <div>
+            Home 3
+        </div>
+    )
+}
+
+export {
+    Home1,
+    Home2,
+    Home3
+}

@@ -7,13 +7,11 @@ import axios from 'axios'
 
 const URL = 'https://todo-app-bs.herokuapp.com/v1'
 
-export const getTareas = async (setListaTareas) => {
+export const getTareas = async () => {
     const resp = await axios.get(URL + '/task', {
         headers: {
             Authorization: localStorage.getItem('token')
         }
     });
-    console.log(resp.data.detail)
-    setListaTareas(resp.data.detail)
+    return resp.data.detail
 }
-

@@ -1,10 +1,21 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { getTareas } from '../../services/tareas'
 
 const Tareas = () => {
     const [listaTareas, setListaTareas] = useState([])
 
-    getTareas(setListaTareas);
+    const getTareasNew = async () => {
+        const respuesta = await getTareas();
+        setListaTareas(respuesta)
+    }
+
+    useEffect(() => {
+        getTareasNew();
+        console.log('montaje')
+    }, [])
+
+
+
 
     return (
         <ul>
