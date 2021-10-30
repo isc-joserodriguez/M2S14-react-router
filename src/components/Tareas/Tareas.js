@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { getTareas } from '../../services/tareas'
+import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios'
 
 const Tareas = ({ contador = 0 }) => {
+    const history = useHistory();
     const [listaTareas, setListaTareas] = useState([])
     const [nombre, setNombre] = useState('pikachu');
     const [dataPokemon, setDataPokemon] = useState({
@@ -42,7 +44,11 @@ const Tareas = ({ contador = 0 }) => {
                     fontSize: '50px'
                 }}>
                     {listaTareas.map((tarea, i) => (
-                        <li key={i}>{tarea.title} {tarea.description}</li>
+                        <li key={i}>
+                            {tarea.title} {tarea.description}
+                            <Link to={'/tareas/' + tarea._id}>Ver info</Link>
+                            <button onClick={() => { history.push('/tareas/' + tarea._id) }}>Ver</button>
+                        </li>
                     ))}
                 </ul>
 

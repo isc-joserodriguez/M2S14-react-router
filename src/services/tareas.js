@@ -15,3 +15,12 @@ export const getTareas = async () => {
     });
     return resp.data.detail
 }
+
+export const getTarea = async (id) => {
+    const resp = await axios.get(URL + '/task/' + id, {
+        headers: {
+            Authorization: localStorage.getItem('token')
+        }
+    });
+    return resp.data.detail
+}

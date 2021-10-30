@@ -5,6 +5,8 @@ import ListaPacientes from './components/Pacientes/ListaPacientes'
 import NuevoPaciente from './components/Pacientes/NuevoPaciente'
 import Tareas from './components/Tareas/Tareas'
 import Time from './components/Time/Time'
+import Parametro from './components/Parametro/Parametro'
+import InfoTarea from './components/Tareas/InfoTarea/InfoTarea'
 /* 
 Paso 2: Mostrar el Componente
 Paso 2.1: Importar el componente
@@ -41,6 +43,7 @@ export default function App() {
       <li><Link to='/tareas'>Tareas</Link></li>
       <li><Link to='/time'>Time</Link></li>
       <li><Link to='/counter'>Counter</Link></li>
+      <li><Link to='/parametro/hola'>Parametro Component</Link></li>
     </ul>
   ) : (
     <ul>
@@ -58,10 +61,12 @@ export default function App() {
     </Route>,
     <Route key='3' path='/paciente/nuevo' component={NuevoPaciente} exact />,
     <Route key='4' path='/tareas' component={Tareas} exact />,
+    <Route key='8' path='/tareas/:id' component={InfoTarea} exact />,
     <Route key='5' path='/time' component={Time} exact />,
     <Route key='6' path='/counter' exact >
       <Counter count={count} setCount={setCount} />
-    </Route>
+    </Route>,
+    <Route key='7' path='/parametro/:mensaje' component={Parametro} exact />,
   ]
 
   return (
