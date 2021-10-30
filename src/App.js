@@ -5,6 +5,12 @@ import ListaPacientes from './components/Pacientes/ListaPacientes'
 import NuevoPaciente from './components/Pacientes/NuevoPaciente'
 import Tareas from './components/Tareas/Tareas'
 import Time from './components/Time/Time'
+/* 
+Paso 2: Mostrar el Componente
+Paso 2.1: Importar el componente
+*/
+import Counter from './components/Counter/Counter';
+
 
 import Signup from './components/Signup/Signup'
 import Signin from './components/Signin/Signin'
@@ -20,16 +26,21 @@ export default function App() {
   const [pacientesArray, setPacientes] = useState(pacientes);
   const [token, setToken] = useState(localStorage.getItem('token'));
 
+  /* Paso 3.- Crear estado para enviarlo al componente */
+  const [count, setCount] = useState(10)
+
 
   const updateToken = (newToken) => setToken(newToken)
 
   const nav = token ? (
+    /* Paso 2.3: Agregar enlace para el componente */
     <ul>
       <li><Link to='/' className='Enlace' id='Link'>Home</Link></li>
       <li><Link to='/about'>About</Link></li>
       <li><Link to='/paciente'>Pacientes</Link></li>
       <li><Link to='/tareas'>Tareas</Link></li>
       <li><Link to='/time'>Time</Link></li>
+      <li><Link to='/counter'>Counter</Link></li>
     </ul>
   ) : (
     <ul>
@@ -39,6 +50,7 @@ export default function App() {
     </ul>
   )
 
+  /* Paso 2.2: Agregar la ruta al componente App */
   const rutas = [
     <Route key='1' path='/about' render={() => <div>About </div>} exact />,
     <Route key='2' path='/paciente' exact>
@@ -46,7 +58,10 @@ export default function App() {
     </Route>,
     <Route key='3' path='/paciente/nuevo' component={NuevoPaciente} exact />,
     <Route key='4' path='/tareas' component={Tareas} exact />,
-    <Route key='5' path='/time' component={Time} exact />
+    <Route key='5' path='/time' component={Time} exact />,
+    <Route key='6' path='/counter' exact >
+      <Counter count={count} setCount={setCount} />
+    </Route>
   ]
 
   return (
