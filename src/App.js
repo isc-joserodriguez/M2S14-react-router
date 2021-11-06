@@ -11,6 +11,7 @@ import InfoTarea from './components/Tareas/InfoTarea/InfoTarea'
 Paso 2: Mostrar el Componente
 Paso 2.1: Importar el componente
 */
+import Firestore from './components/Firestore/Firestore';
 import Counter from './components/Counter/Counter';
 
 
@@ -44,6 +45,7 @@ export default function App() {
       <li><Link to='/time'>Time</Link></li>
       <li><Link to='/counter'>Counter</Link></li>
       <li><Link to='/parametro/hola'>Parametro Component</Link></li>
+      <li><Link to='/firestore'>Firestore</Link></li>
     </ul>
   ) : (
     <ul>
@@ -67,6 +69,7 @@ export default function App() {
       <Counter count={count} setCount={setCount} />
     </Route>,
     <Route key='7' path='/parametro/:mensaje' component={Parametro} exact />,
+    <Route key='8' path='/firestore' component={Firestore} exact />,
   ]
 
   return (
