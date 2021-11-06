@@ -6,6 +6,7 @@ import { db, auth } from '../../services/firebase';
 
 import {
     getDocs,
+    setDoc,
     collection,
     onSnapshot,
     doc,
@@ -13,13 +14,29 @@ import {
 } from 'firebase/firestore';
 
 const Firestore = () => {
+    const refDoc = doc(db, 'pelicula', '645EjXwrUExQnnCYNm2r')
+    console.log(refDoc)
+    const [edit, setEdit] = useState(false)
+    const [id, setId] = useState('')
     const [peliculas, setPeliculas] = useState([]);
     const [formData, setFormData] = useState({
         nombre: '',
         genero: '',
         director: '',
         imagen: '',
-    })
+    });
+
+    const updateEdit = (value) => setEdit(value);
+
+    const updateId = (id) => setId(id);
+
+    const onUpdate = async (id, values) => {
+        if (window.confirm('Aceptar?')) {
+            await setDoc(doc(db, 'pelicula', id), values)
+            alert('Se actualizó satisfactoriamente');
+        }
+        updateEdit(false)
+    }
 
     const onSave = (values) => {
         addDoc(collection(db, 'pelicula'), values);
@@ -43,8 +60,20 @@ const Firestore = () => {
 
     return (
         <div>
-            <Form formData={formData} setFormData={setFormData} onSave={onSave} />
-            <List peliculas={peliculas} />
+            <Form
+                formData={formData}
+                setFormData={setFormData}
+                onSave={onSave}
+                onUpdate={onUpdate}
+                edit={edit}
+                id={id}
+            />
+            <List
+                peliculas={peliculas}
+                setEdit={() => updateEdit(true)}
+                updateId={updateId}
+                setFormData={setFormData}
+            />
         </div>
     )
 }

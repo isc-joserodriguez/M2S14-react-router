@@ -4,11 +4,18 @@ import { Form, Button, Card } from 'react-bootstrap'
 const FormPelicula = ({
     formData,
     setFormData,
-    onSave
+    onSave,
+    onUpdate,
+    id,
+    edit
 }) => {
     const onSubmit = (e) => {
         e.preventDefault();
-        onSave(formData)
+        if (edit) {
+            onUpdate(id, formData)
+        } else {
+            onSave(formData)
+        }
         setFormData({
             nombre: '',
             genero: '',

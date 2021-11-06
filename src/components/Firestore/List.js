@@ -1,7 +1,18 @@
 import React from 'react'
 import { Card, Table, Button } from 'react-bootstrap'
 
-const List = ({ peliculas }) => {
+const List = ({ peliculas, setEdit, updateId, setFormData }) => {
+    const handleClick = (values) => {
+        updateId(values.id)
+        setFormData({
+            director: values.director,
+            genero: values.genero,
+            nombre: values.nombre,
+            imagen: values.imagen,
+        });
+        setEdit();
+    }
+
     return (
         <Card style={{ width: '50%', marginLeft: 'auto', marginRight: 'auto' }}>
             <h1>Lista</h1>
@@ -31,7 +42,7 @@ const List = ({ peliculas }) => {
                                 }
                             </td>
                             <td>
-                                <Button variant="warning">Editar</Button>
+                                <Button variant="warning" onClick={() => handleClick(pelicula)}>Editar</Button> {/* Creamos una función que ejecuta handleClick */}
                                 <Button variant="danger">Eliminar</Button>
                             </td>
                         </tr>
