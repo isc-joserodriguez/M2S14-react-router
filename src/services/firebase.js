@@ -1,15 +1,15 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore"
-import {getAuth} from "firebase/auth"
+import { getAuth } from "firebase/auth"
 
 initializeApp({
-    apiKey: "AIzaSyAgpNrjLNGEDKEPkqF9tISz-F11gHiSDxEa",
-    authDomain: "fir-react-19d08.firebaseapp.com",
-    projectId: "fir-react-19d08",
-    storageBucket: "fir-react-19d08.appspot.com",
-    messagingSenderId: "584095717609",
-    appId: "1:584095717609:web:a62b5fd3c8faa25cf3b878"
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER,
+    appId: process.env.REACT_APP_FIREBASE_APP_ID,
 });
 
 export const db = getFirestore();
