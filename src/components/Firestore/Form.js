@@ -1,32 +1,40 @@
 import React from 'react'
 import { Form, Button, Card } from 'react-bootstrap'
 
-const FormPelicula = () => {
+const FormPelicula = ({
+    formData,
+    setFormData,
+    onSave
+}) => {
     const onSubmit = (e) => {
         e.preventDefault();
+        onSave(formData)
         e.target.reset();
     }
 
     const onChange = (e) => {
-        console.log('on change...')
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        })
     }
 
     return (
-        <Card style={{ width: '50%', marginLeft: 'auto', marginRight: 'auto' }}>
+        <Card style={{ width: '50%', marginLeft: 'auto', marginRight: 'auto' }} >
             <Card.Body>
                 <Form onSubmit={onSubmit}>
                     <Form.Group className="mb-3">
                         <Form.Label>Nombre</Form.Label>
-                        <Form.Control type="text" placeholder="Nombre" name='nombre' onChange={onChange} />
+                        <Form.Control type="text" placeholder="Nombre" name='nombre' value={formData.nombre} onChange={onChange} />
                     </Form.Group>
                     <Form.Group className="mb-3">
                         <Form.Label>Género</Form.Label>
-                        <Form.Control type="text" placeholder="Género" name='genero' onChange={onChange} />
+                        <Form.Control type="text" placeholder="Género" name='genero' value={formData.genero} onChange={onChange} />
                     </Form.Group>
 
                     <Form.Group className="mb-3" >
                         <Form.Label>Director</Form.Label>
-                        <Form.Control type="text" placeholder="Director" name='director' onChange={onChange} />
+                        <Form.Control type="text" placeholder="Director" name='director' value={formData.director} onChange={onChange} />
                     </Form.Group>
                     <Button variant="primary" type="submit">
                         Guardar

@@ -4,7 +4,7 @@ import { getFirestore } from "firebase/firestore"
 import {getAuth} from "firebase/auth"
 
 initializeApp({
-    apiKey: "AIzaSyAgpNrjLNGEDKEPkqF9tISz-F11gHiSDxE",
+    apiKey: "AIzaSyAgpNrjLNGEDKEPkqF9tISz-F11gHiSDxEa",
     authDomain: "fir-react-19d08.firebaseapp.com",
     projectId: "fir-react-19d08",
     storageBucket: "fir-react-19d08.appspot.com",
@@ -14,3 +14,11 @@ initializeApp({
 
 export const db = getFirestore();
 export const auth = getAuth();
+
+//git fetch origin rama
+//git merge rama
+
+//git pull
+
+//Commit -> Mensaje para el merge
+

@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals'
 
 import { BrowserRouter as Route } from 'react-router-dom'
 
-import './firebase';
+import './services/firebase';
 
 //Agregamos bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
