@@ -12,7 +12,8 @@ const FormPelicula = ({
         setFormData({
             nombre: '',
             genero: '',
-            director: ''
+            director: '',
+            imagen: '',
         })
     }
 
@@ -39,6 +40,11 @@ const FormPelicula = ({
                     <Form.Group className="mb-3" >
                         <Form.Label>Director</Form.Label>
                         <Form.Control type="text" placeholder="Director" name='director' value={formData.director} onChange={onChange} />
+                    </Form.Group>
+
+                    <Form.Group className="mb-3" >
+                        <Form.Label>Imagen</Form.Label>
+                        <Form.Control type="text" placeholder="Imagen" name='imagen' value={formData.imagen} onChange={onChange} />
                     </Form.Group>
                     <Button variant="primary" type="submit">
                         Guardar

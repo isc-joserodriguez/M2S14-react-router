@@ -13,6 +13,7 @@ const List = ({ peliculas }) => {
                         <th>Nombre</th>
                         <th>Género</th>
                         <th>Director</th>
+                        <th>Imagen</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -22,6 +23,13 @@ const List = ({ peliculas }) => {
                             <td>{pelicula.nombre}</td>
                             <td>{pelicula.genero}</td>
                             <td>{pelicula.director}</td>
+                            <td>
+                                {
+                                    pelicula.imagen ?
+                                        <img width={100} src={pelicula.imagen} /> :
+                                        'No hay imagen'
+                                }
+                            </td>
                             <td>
                                 <Button variant="warning">Editar</Button>
                                 <Button variant="danger">Eliminar</Button>

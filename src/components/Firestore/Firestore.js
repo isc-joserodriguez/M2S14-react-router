@@ -17,7 +17,8 @@ const Firestore = () => {
     const [formData, setFormData] = useState({
         nombre: '',
         genero: '',
-        director: ''
+        director: '',
+        imagen: '',
     })
 
     const onSave = (values) => {
