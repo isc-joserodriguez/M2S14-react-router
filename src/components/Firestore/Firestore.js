@@ -18,8 +18,6 @@ const Firestore = () => {
         console.log('Guardando', values)
     }
 
-
-
     const getPeliculas = async () => {
         /* const snapshot = await getDocs(collection(db, 'pelicula'))
         const res = snapshot.docs.map(doc => doc.data()) */
