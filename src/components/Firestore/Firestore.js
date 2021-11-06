@@ -4,7 +4,13 @@ import List from './List';
 
 import { db, auth } from '../../services/firebase';
 
-import { getDocs, collection, onSnapshot, doc } from 'firebase/firestore';
+import {
+    getDocs,
+    collection,
+    onSnapshot,
+    doc,
+    addDoc
+} from 'firebase/firestore';
 
 const Firestore = () => {
     const [peliculas, setPeliculas] = useState([]);
@@ -15,7 +21,8 @@ const Firestore = () => {
     })
 
     const onSave = (values) => {
-        console.log('Guardando', values)
+        addDoc(collection(db, 'pelicula'), values);
+        alert('Se guardó satisfactoriamente');
     }
 
     const getPeliculas = async () => {

@@ -9,8 +9,11 @@ const FormPelicula = ({
     const onSubmit = (e) => {
         e.preventDefault();
         onSave(formData)
-        /* FormData */
-        e.target.reset();
+        setFormData({
+            nombre: '',
+            genero: '',
+            director: ''
+        })
     }
 
     const onChange = (e) => {
