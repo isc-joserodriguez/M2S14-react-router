@@ -18,6 +18,9 @@ import Counter from './components/Counter/Counter';
 import Signup from './components/Signup/Signup'
 import Signin from './components/Signin/Signin'
 
+import SignupFirebase from './components/Firestore/Auth/Signup'
+import SigninFirebase from './components/Firestore/Auth/Signin'
+
 import { pacientes } from './utils/data';
 
 //Rutas 
@@ -52,6 +55,8 @@ export default function App() {
       <li><Link to='/' className='Enlace'>Home</Link></li>
       <li><Link to='/signup'>Registrarse</Link></li>
       <li><Link to='/login'>Loguearse</Link></li>
+      <li><Link to='/signup-firebase'>Registrarse con Firebase</Link></li>
+      <li><Link to='/login-firebase'>Loguearse con Firebase</Link></li>
     </ul>
   )
 
@@ -90,6 +95,12 @@ export default function App() {
           </Route>
           <Route path='/signup' exact >
             <Signup setToken={updateToken} />
+          </Route>
+          <Route path='/login-firebase' exact >
+            <SigninFirebase setToken={updateToken} />
+          </Route>
+          <Route path='/signup-firebase' exact >
+            <SignupFirebase setToken={updateToken} />
           </Route>
         </>}
 
