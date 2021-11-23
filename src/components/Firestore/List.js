@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, Table, Button } from 'react-bootstrap'
 
-const List = ({ peliculas, setEdit, updateId, setFormData }) => {
+const List = ({ peliculas, setEdit, updateId, setFormData, onDelete }) => {
     const handleClick = (values) => {
         updateId(values.id)
         setFormData({
@@ -43,7 +43,8 @@ const List = ({ peliculas, setEdit, updateId, setFormData }) => {
                             </td>
                             <td>
                                 <Button variant="warning" onClick={() => handleClick(pelicula)}>Editar</Button> {/* Creamos una función que ejecuta handleClick */}
-                                <Button variant="danger">Eliminar</Button>
+                                {/* Creamos el onClick ejecutando la función onDelete recibida por props y enviando los datos del elemento de la lista (estos datos se obtuvieron por el map) */}
+                                <Button variant="danger" onClick={()=>onDelete(pelicula.id)}>Eliminar</Button>
                             </td>
                         </tr>
                     ))}

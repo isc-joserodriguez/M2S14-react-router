@@ -10,7 +10,8 @@ import {
     collection,
     onSnapshot,
     doc,
-    addDoc
+    addDoc,
+    deleteDoc
 } from 'firebase/firestore';
 
 const Firestore = () => {
@@ -34,6 +35,17 @@ const Firestore = () => {
         if (window.confirm('Aceptar?')) {
             await setDoc(doc(db, 'pelicula', id), values)
             alert('Se actualizó satisfactoriamente');
+        }
+        updateEdit(false)
+    }
+
+    //Creamos la función para enviarla a la lista de películas como props
+    const onDelete = async (id) => {
+        //Preguntamos si está seguro de eliminar
+        if (window.confirm('Quieres eliminar la pelicula?')) {
+            //Llamamos el método de firebase
+            await deleteDoc(doc(db, 'pelicula', id))
+            alert('Se eliminó satisfactoriamente');
         }
         updateEdit(false)
     }
@@ -71,6 +83,8 @@ const Firestore = () => {
             <List
                 peliculas={peliculas}
                 setEdit={() => updateEdit(true)}
+                //Enviamos el método de eliminar por props
+                onDelete={onDelete}
                 updateId={updateId}
                 setFormData={setFormData}
             />
